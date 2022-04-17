@@ -1,5 +1,10 @@
 import Router from "./router/Router";
+import GlobalContext from "./contexts/GlobalContext";
 const App = () => {
-	return <Router />;
+	return (
+		<GlobalContext>
+			<Router />
+		</GlobalContext>
+	);
 };
 export default App;
