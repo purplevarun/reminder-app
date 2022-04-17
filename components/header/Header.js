@@ -6,18 +6,18 @@ import {
 	SettingsBtn,
 } from "./../buttons/Buttons";
 import { headerBtnsStyle, headerStyle } from "./HeaderStyle";
-const Header = () => {
+const Header = ({ navigation }) => {
 	const handleReminderIconPress = () => {
 		Alert.alert("");
 	};
 	const handleAddReminderBtnPress = () => {
-		Alert.alert("");
+		navigation.navigate("Screen_1_Add_Reminder");
 	};
 	const handleAllRemindersBtnPress = () => {
-		Alert.alert("");
+		navigation.navigate("Screen_2_All_Reminders");
 	};
 	const handleSettingsBtnPress = () => {
-		Alert.alert("");
+		navigation.navigate("Screen_3_Settings");
 	};
 
 	return (

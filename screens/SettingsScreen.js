@@ -1,9 +1,16 @@
 import { View, Text } from "react-native";
-import { screenWrapperStyle } from "./screenStyles";
-const SettingsScreen = () => {
+import Header from "../components/header/Header";
+import { screenBodyStyle, screenWrapperStyle } from "./screenStyles";
+const SettingsScreen = ({ navigation }) => {
+	const navProp = {
+		navigation: navigation,
+	};
 	return (
 		<View style={screenWrapperStyle}>
-			<Text>Settings Screen</Text>
+			<Header {...navProp} />
+			<View style={screenBodyStyle}>
+				<Text>Settings Screen</Text>
+			</View>
 		</View>
 	);
 };

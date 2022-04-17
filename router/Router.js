@@ -1,5 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Header from "../components/header/Header";
 import CreateReminderScreen from "./../screens/CreateReminderScreen";
 import MyRemindersScreen from "./../screens/MyRemindersScreen";
 import SettingsScreen from "./../screens/SettingsScreen";
@@ -9,18 +10,18 @@ const Router = () => {
 		<NavigationContainer>
 			<Stack.Navigator
 				screenOptions={{ headerShown: false }}
-				initialRouteName="Create Reminder"
+				initialRouteName="Screen_1_Add_Reminder"
 			>
 				<Stack.Screen
-					name="Create Reminder"
+					name="Screen_1_Add_Reminder"
 					component={CreateReminderScreen}
 				/>
 				<Stack.Screen
-					name="My Reminders"
+					name="Screen_2_All_Reminders"
 					component={MyRemindersScreen}
 				/>
 				<Stack.Screen
-					name="Settings Screen"
+					name="Screen_3_Settings"
 					component={SettingsScreen}
 				/>
 			</Stack.Navigator>
