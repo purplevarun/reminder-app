@@ -1,14 +1,11 @@
-import { useContext } from "react";
 import { View, Text } from "react-native";
+import { useContext } from "react";
 import { GlobalContext } from "../contexts/GlobalContext";
 const CreateReminderScreen = () => {
-	const data = useContext(GlobalContext);
+	const { style } = useContext(GlobalContext);
 	return (
-		<View
-			style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
-		>
+		<View style={style.screenStyle}>
 			<Text>Create Reminder Screen</Text>
-			<Text>{data.name}</Text>
 		</View>
 	);
 };

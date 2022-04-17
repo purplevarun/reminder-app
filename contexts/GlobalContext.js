@@ -1,8 +1,12 @@
 import { createContext } from "react";
-export const GlobalContext = createContext();
-export const data = {
+import StyleData from "./data/StyleData";
+const data = {
 	name: "Varun Kedia",
+	age: 21,
+	style: StyleData,
 };
+
+export const GlobalContext = createContext();
 
 const GlobalContextProvider = (props) => {
 	return (
