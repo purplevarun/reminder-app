@@ -1,7 +1,7 @@
 import { View, Text } from "react-native";
 import { useContext } from "react";
 import { GlobalContext } from "../contexts/GlobalContext";
-import Header from "../components/Header";
+import Header from "../components/header/Header";
 const CreateReminderScreen = () => {
 	const { style } = useContext(GlobalContext);
 	return (
