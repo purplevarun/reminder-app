@@ -1,22 +1,22 @@
 import { View, Text } from "react-native";
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
 import Header from "../components/header/Header";
-import {
-	screenHeadingStyle,
-	screenBodyStyle,
-	screenWrapperStyle,
-} from "./screenStyles";
+import { getScreenStyles } from "./screenStyles";
 import ToggleDarkModeBtn from "../components/toggleDarkModeBtn/ToggleDarkModeBtn";
+import { GlobalContext } from "../contexts/GlobalContext";
 const SettingsScreen = ({ navigation }) => {
-	const navProp = {
-		navigation: navigation,
-	};
-	const [styles, setStyles] = useState();
+	const { darkMode, colors } = useContext(GlobalContext);
+	const [styles, setStyles] = useState(
+		getScreenStyles(darkMode.darkMode, colors)
+	);
+	useEffect(() => {
+		setStyles(getScreenStyles(darkMode.darkMode, colors));
+	}, [darkMode.darkMode]);
 	return (
-		<View style={screenWrapperStyle}>
-			<Header {...navProp} />
-			<View style={screenBodyStyle}>
-				<Text style={screenHeadingStyle}>Settings</Text>
+		<View style={styles.screenWrapperStyle}>
+			<Header navigation={navigation} />
+			<View style={styles.screenBodyStyle}>
+				<Text style={styles.screenHeadingStyle}>Settings</Text>
 				<ToggleDarkModeBtn />
 			</View>
 		</View>

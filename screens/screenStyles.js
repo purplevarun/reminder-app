@@ -1,30 +1,25 @@
-const blackColor = "black";
-const whiteColor = "white";
-export const screenWrapperStyle = {
-	backgroundColor: "white",
-	flex: 1,
-	justifyContent: "flex-start",
+const getFgColor = (darkMode, colors) => {
+	return darkMode ? colors.light : colors.dark;
 };
-export const screenBodyStyle = {
-	padding: 10,
-	flex: 1,
-	flexDirection: "column",
+const getBgColor = (darkMode, colors) => {
+	return darkMode ? colors.dark : colors.light;
 };
-export const screenHeadingStyle = {
-	fontSize: 30,
-	alignSelf: "center",
-	fontWeight: "bold",
-	paddingBottom: 20,
-};
-export const getScreenStyles = (darkMode) => {
+export const getScreenStyles = (darkMode, colors) => {
 	return {
 		screenWrapperStyle: {
-			backgroundColor: darkMode ? blackColor : whiteColor,
+			backgroundColor: getBgColor(darkMode, colors),
 			flex: 1,
 			justifyContent: "flex-start",
 		},
 		screenBodyStyle: {
 			padding: 10,
+		},
+		screenHeadingStyle: {
+			fontSize: 30,
+			alignSelf: "center",
+			fontWeight: "bold",
+			paddingBottom: 20,
+			color: getFgColor(darkMode, colors),
 		},
 	};
 };

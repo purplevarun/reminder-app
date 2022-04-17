@@ -1,16 +1,23 @@
+import { useEffect, useState, useContext } from "react";
 import { View, Text } from "react-native";
 import Header from "../components/header/Header";
-import { screenBodyStyle, screenWrapperStyle } from "./screenStyles";
+import { getScreenStyles } from "./screenStyles";
+import { GlobalContext } from "../contexts/GlobalContext";
 const CreateReminderScreen = ({ navigation }) => {
-	const navProp = {
-		navigation: navigation,
-	};
-
+	const { darkMode, colors } = useContext(GlobalContext);
+	const [styles, setStyles] = useState(
+		getScreenStyles(darkMode.darkMode, colors)
+	);
+	useEffect(() => {
+		setStyles(getScreenStyles(darkMode.darkMode, colors));
+	}, [darkMode.darkMode]);
 	return (
-		<View style={screenWrapperStyle}>
-			<Header {...navProp} />
-			<View style={screenBodyStyle}>
-				<Text>Create Reminder Screen</Text>
+		<View style={styles.screenWrapperStyle}>
+			<Header navigation={navigation} />
+			<View style={styles.screenBodyStyle}>
+				<Text style={styles.screenHeadingStyle}>
+					Create New Reminder
+				</Text>
 			</View>
 		</View>
 	);
