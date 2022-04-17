@@ -1,10 +1,5 @@
 import { createContext } from "react";
-import StyleData from "./data/StyleData";
-const data = {
-	name: "Varun Kedia",
-	age: 21,
-	style: StyleData,
-};
+const data = {};
 
 export const GlobalContext = createContext();
 

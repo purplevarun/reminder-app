@@ -1,9 +1,8 @@
 import { View, Text } from "react-native";
+import { screenWrapperStyle } from "./screenStyles";
 const SettingsScreen = () => {
 	return (
-		<View
-			style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
-		>
+		<View style={screenWrapperStyle}>
 			<Text>Settings Screen</Text>
 		</View>
 	);
