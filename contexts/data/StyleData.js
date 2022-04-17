@@ -1,12 +1,10 @@
-const screenStyle = {
+const screenWrapper = {
 	backgroundColor: "teal",
 	flex: 1,
-	flexDirection: "row",
-	justifyContent: "center",
-	alignItems: "center",
+	justifyContent: "flex-start",
 };
 const styleData = {
-	screenStyle,
+	screenWrapper,
 };
 
 export { styleData as default };

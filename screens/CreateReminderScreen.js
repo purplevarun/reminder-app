@@ -1,10 +1,12 @@
 import { View, Text } from "react-native";
 import { useContext } from "react";
 import { GlobalContext } from "../contexts/GlobalContext";
+import Header from "../components/Header";
 const CreateReminderScreen = () => {
 	const { style } = useContext(GlobalContext);
 	return (
-		<View style={style.screenStyle}>
+		<View style={style.screenWrapper}>
+			<Header />
 			<Text>Create Reminder Screen</Text>
 		</View>
 	);
