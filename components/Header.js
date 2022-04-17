@@ -1,26 +1,40 @@
-import { View, Text, TouchableOpacity, Alert } from "react-native";
-import { AlarmIcon } from "./icons";
-import { AddAlarmBtn } from "./buttons";
+import { View, Alert } from "react-native";
+import { ReminderIcon } from "./icons";
+import { AddReminderBtn, AllRemindersBtn, SettingsBtn } from "./buttons";
 const Header = () => {
-	const handleAlarmIconPress = () => {
+	const handleReminderIconPress = () => {
 		Alert.alert("");
 	};
+	const handleAddReminderBtnPress = () => {
+		Alert.alert("");
+	};
+	const handleAllRemindersBtnPress = () => {
+		Alert.alert("");
+	};
+	const handleSettingsBtnPress = () => {
+		Alert.alert("");
+	};
+	const headerStyle = {
+		backgroundColor: "green",
+		paddingTop: 30,
+		flexDirection: "row",
+		height: 100,
+		display: "flex",
+		justifyContent: "space-between",
+		alignItems: "center",
+		paddingHorizontal: 20,
+	};
+	const headerBtnsStyle = {
+		display: "flex",
+		flexDirection: "row",
+	};
 	return (
-		<View
-			style={{
-				backgroundColor: "green",
-				paddingTop: 30,
-				flexDirection: "row",
-				height: 100,
-				display: "flex",
-				justifyContent: "space-between",
-				alignItems: "center",
-				paddingHorizontal: 20,
-			}}
-		>
-			<AlarmIcon onPress={handleAlarmIconPress} />
-			<View>
-				<AddAlarmBtn />
+		<View style={headerStyle}>
+			<ReminderIcon onPress={handleReminderIconPress} />
+			<View style={headerBtnsStyle}>
+				<AddReminderBtn onPress={handleAddReminderBtnPress} />
+				<AllRemindersBtn onPress={handleAllRemindersBtnPress} />
+				<SettingsBtn onPress={handleSettingsBtnPress} />
 			</View>
 		</View>
 	);

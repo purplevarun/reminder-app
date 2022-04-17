@@ -1,5 +1,5 @@
 import { Image, TouchableOpacity } from "react-native";
-export const AlarmIcon = ({ onPress }) => {
+export const ReminderIcon = ({ onPress }) => {
 	return (
 		<TouchableOpacity style={{ backgroundColor: "none" }} onPress={onPress}>
 			<Image
