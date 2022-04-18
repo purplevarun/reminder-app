@@ -11,6 +11,9 @@ const CreateReminderScreen = ({ navigation }) => {
 	const handlePress = () => {
 		setCreateReminder(true);
 	};
+	const newReminderProps = {
+		setCreateReminder,
+	};
 	return (
 		<View style={styles.screenWrapperStyle}>
 			<Header navigation={navigation} />
@@ -19,7 +22,7 @@ const CreateReminderScreen = ({ navigation }) => {
 					Create New Reminder
 				</Text>
 				{createReminder ? (
-					<NewReminder />
+					<NewReminder {...newReminderProps} />
 				) : (
 					<CreateReminderBtn onPress={handlePress} />
 				)}

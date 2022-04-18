@@ -3,7 +3,7 @@ import { darkModeColors, lightModeColors } from "./colors";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 export const GlobalContext = createContext();
 const GlobalContextProvider = (props) => {
-	const [darkMode, setDarkMode] = useState(false);
+	const [darkMode, setDarkMode] = useState(true);
 	const [colors, setColors] = useState(lightModeColors);
 	const [reminders, setReminders] = useState([]);
 	const getDefaultTheme = async () => {
