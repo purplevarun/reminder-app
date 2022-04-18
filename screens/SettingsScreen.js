@@ -1,17 +1,13 @@
-import { useContext } from "react";
 import { View, Text } from "react-native";
 import Header from "../components/header/Header";
-import { getScreenStyles } from "./screenStyles";
-import { GlobalContext } from "../contexts/GlobalContext";
+import screenStyles from "./screenStyles";
 import ToggleDarkModeBtn from "./../components/toggleDarkModeBtn/ToggleDarkModeBtn";
 const SettingsScreen = ({ navigation }) => {
-	const { colors } = useContext(GlobalContext);
-	const styles = getScreenStyles(colors);
 	return (
-		<View style={styles.screenWrapperStyle}>
+		<View style={screenStyles().screenWrapperStyle}>
 			<Header navigation={navigation} />
-			<View style={styles.screenBodyStyle}>
-				<Text style={styles.screenHeadingStyle}>Settings</Text>
+			<View style={screenStyles().screenBodyStyle}>
+				<Text style={screenStyles().screenHeadingStyle}>Settings</Text>
 				<ToggleDarkModeBtn />
 			</View>
 		</View>
