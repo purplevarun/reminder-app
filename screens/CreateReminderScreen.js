@@ -1,12 +1,15 @@
 import { View, Text } from "react-native";
+import { GlobalContext } from "../contexts/GlobalContext";
+import { getScreenStyles } from "./screenStyles";
+import { useContext } from "react";
 import Header from "../components/header/Header";
-import screenStyles from "./screenStyles";
 const CreateReminderScreen = ({ navigation }) => {
+	const styles = getScreenStyles(useContext(GlobalContext).colors);
 	return (
-		<View style={screenStyles().screenWrapperStyle}>
+		<View style={styles.screenWrapperStyle}>
 			<Header navigation={navigation} />
-			<View style={screenStyles().screenBodyStyle}>
-				<Text style={screenStyles().screenHeadingStyle}>
+			<View style={styles.screenBodyStyle}>
+				<Text style={styles.screenHeadingStyle}>
 					Create New Reminder
 				</Text>
 			</View>

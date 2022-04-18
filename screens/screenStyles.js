@@ -1,7 +1,4 @@
-import { useContext } from "react";
-import { GlobalContext } from "../contexts/GlobalContext";
-const ScreenStyles = () => {
-	const { colors } = useContext(GlobalContext);
+export const getScreenStyles = (colors) => {
 	return {
 		screenWrapperStyle: {
 			backgroundColor: colors.bg,
@@ -20,4 +17,3 @@ const ScreenStyles = () => {
 		},
 	};
 };
-export { ScreenStyles as default };
