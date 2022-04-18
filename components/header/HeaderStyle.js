@@ -1,13 +1,7 @@
-const getFgColor = (darkMode, colors) => {
-	return darkMode ? colors.light : colors.dark;
-};
-const getBgColor = (darkMode, colors) => {
-	return darkMode ? colors.dark : colors.light;
-};
-export const getHeaderStyles = (darkMode, colors) => {
+export const getHeaderStyles = (colors) => {
 	return {
 		headerStyle: {
-			backgroundColor: getBgColor(darkMode, colors),
+			backgroundColor: colors.bg,
 			paddingTop: 30,
 			flexDirection: "row",
 			height: 100,
@@ -16,7 +10,7 @@ export const getHeaderStyles = (darkMode, colors) => {
 			alignItems: "center",
 			paddingHorizontal: 20,
 			borderBottomWidth: 2,
-			borderBottomColor: getFgColor(darkMode, colors),
+			borderBottomColor: colors.fg,
 		},
 		headerBtnsStyle: {
 			display: "flex",

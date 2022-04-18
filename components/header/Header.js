@@ -6,7 +6,7 @@ import {
 	AllRemindersBtn,
 	SettingsBtn,
 } from "./../buttons/Buttons";
-import { getHeaderStyles, headerBtnsStyle, headerStyle } from "./HeaderStyle";
+import { getHeaderStyles } from "./HeaderStyle";
 import { useState, useContext, useEffect } from "react";
 const Header = ({ navigation }) => {
 	const handleReminderIconPress = () => {
@@ -24,13 +24,9 @@ const Header = ({ navigation }) => {
 	const handleSettingsBtnPress = () => {
 		navigation.navigate("Screen_3_Settings");
 	};
-	const { darkMode, colors } = useContext(GlobalContext);
-	const [styles, setStyles] = useState(
-		getHeaderStyles(darkMode.darkMode, colors)
-	);
-	useEffect(() => {
-		setStyles(getHeaderStyles(darkMode.darkMode, colors));
-	}, [darkMode.darkMode]);
+	const { colors } = useContext(GlobalContext);
+	const styles = getHeaderStyles(colors);
+
 	return (
 		<View style={styles.headerStyle}>
 			<ReminderIcon onPress={handleReminderIconPress} />

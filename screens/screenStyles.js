@@ -1,13 +1,9 @@
-const getFgColor = (darkMode, colors) => {
-	return darkMode ? colors.light : colors.dark;
-};
-const getBgColor = (darkMode, colors) => {
-	return darkMode ? colors.dark : colors.light;
-};
-export const getScreenStyles = (darkMode, colors) => {
+import { useContext } from "react";
+import { GlobalContext } from "../contexts/GlobalContext";
+export const getScreenStyles = (colors) => {
 	return {
 		screenWrapperStyle: {
-			backgroundColor: getBgColor(darkMode, colors),
+			backgroundColor: colors.bg,
 			flex: 1,
 			justifyContent: "flex-start",
 		},
@@ -19,7 +15,29 @@ export const getScreenStyles = (darkMode, colors) => {
 			alignSelf: "center",
 			fontWeight: "bold",
 			paddingBottom: 20,
-			color: getFgColor(darkMode, colors),
+			color: colors.fg,
 		},
 	};
 };
+
+const ScreenStyles = () => {
+	const { colors } = useContext(GlobalContext);
+	return {
+		screenWrapperStyle: {
+			backgroundColor: colors.bg,
+			flex: 1,
+			justifyContent: "flex-start",
+		},
+		screenBodyStyle: {
+			padding: 10,
+		},
+		screenHeadingStyle: {
+			fontSize: 30,
+			alignSelf: "center",
+			fontWeight: "bold",
+			paddingBottom: 20,
+			color: colors.fg,
+		},
+	};
+};
+export { ScreenStyles as default };

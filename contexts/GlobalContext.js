@@ -1,13 +1,12 @@
-import { createContext, useState } from "react";
-
+import { useEffect, createContext, useState } from "react";
+import { darkModeColors, lightModeColors } from "./colors";
 export const GlobalContext = createContext();
-
 const GlobalContextProvider = (props) => {
 	const [darkMode, setDarkMode] = useState(false);
-	const colors = {
-		light: "yellow",
-		dark: "black",
-	};
+	const [colors, setColors] = useState(lightModeColors);
+	useEffect(() => {
+		setColors(darkMode ? darkModeColors : lightModeColors);
+	}, [darkMode]);
 	const data = {
 		darkMode: {
 			darkMode,

@@ -7,49 +7,36 @@ import { useContext } from "react";
 const btnSize = 45;
 
 export const AddReminderBtn = ({ onPress }) => {
-	const { darkMode, colors } = useContext(GlobalContext);
-	const getBtnColor = () => {
-		return darkMode.darkMode ? colors.light : colors.dark;
-	};
+	const { colors } = useContext(GlobalContext);
 	return (
 		<TouchableOpacity style={touchableOpacityStyle} onPress={onPress}>
-			<MaterialIcon
-				name="alarm-add"
-				size={btnSize}
-				color={getBtnColor()}
-			/>
+			<MaterialIcon name="alarm-add" size={btnSize} color={colors.fg} />
 		</TouchableOpacity>
 	);
 };
 
 export const AllRemindersBtn = ({ onPress }) => {
-	const { darkMode, colors } = useContext(GlobalContext);
-	const getBtnColor = () => {
-		return darkMode.darkMode ? colors.light : colors.dark;
-	};
+	const { colors } = useContext(GlobalContext);
 	return (
 		<TouchableOpacity style={touchableOpacityStyle} onPress={onPress}>
 			<MaterialIcon
 				name="access-alarms"
 				size={btnSize}
-				color={getBtnColor()}
+				color={colors.fg}
 			/>
 		</TouchableOpacity>
 	);
 };
 
 export const SettingsBtn = ({ onPress }) => {
-	const { darkMode, colors } = useContext(GlobalContext);
-	const getBtnColor = () => {
-		return darkMode.darkMode ? colors.light : colors.dark;
-	};
+	const { colors } = useContext(GlobalContext);
 	return (
 		<TouchableOpacity style={touchableOpacityStyle} onPress={onPress}>
 			<View style={{ display: "flex", height: btnSize, top: 1 }}>
 				<FeatherIcon
 					name="settings"
 					size={btnSize - 3}
-					color={getBtnColor()}
+					color={colors.fg}
 				/>
 			</View>
 		</TouchableOpacity>
