@@ -5,6 +5,7 @@ export const GlobalContext = createContext();
 const GlobalContextProvider = (props) => {
 	const [darkMode, setDarkMode] = useState(false);
 	const [colors, setColors] = useState(lightModeColors);
+	const [reminders, setReminders] = useState([]);
 	const getDefaultTheme = async () => {
 		const defaultTheme = await AsyncStorage.getItem("defaultThemeForApp");
 		if (defaultTheme) {
@@ -36,6 +37,10 @@ const GlobalContextProvider = (props) => {
 			setDarkModeAndSave,
 		},
 		colors,
+		reminders: {
+			reminders,
+			setReminders,
+		},
 	};
 	return (
 		<GlobalContext.Provider value={data}>

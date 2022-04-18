@@ -42,3 +42,25 @@ export const SettingsBtn = ({ onPress }) => {
 		</TouchableOpacity>
 	);
 };
+
+export const CreateReminderBtn = ({ onPress }) => {
+	const { colors } = useContext(GlobalContext);
+	return (
+		<View
+			style={{
+				display: "flex",
+				paddingTop: 50,
+			}}
+		>
+			<TouchableOpacity style={touchableOpacityStyle} onPress={onPress}>
+				<View style={{ display: "flex", height: btnSize, top: 1 }}>
+					<FeatherIcon
+						name="plus-circle"
+						size={btnSize - 3}
+						color={colors.fg}
+					/>
+				</View>
+			</TouchableOpacity>
+		</View>
+	);
+};
