@@ -1,4 +1,4 @@
-import { View, Text, TextInput } from "react-native";
+import { ScrollView } from "react-native";
 import { useContext, useState } from "react";
 import { GlobalContext } from "../../contexts/GlobalContext";
 import InputBox from "./subcomponents/InputBox";
@@ -23,10 +23,10 @@ const NewReminder = ({ setCreateReminder }) => {
 		margin: 10,
 	};
 	return (
-		<View style={newReminderWrapperStyles}>
+		<ScrollView style={newReminderWrapperStyles}>
 			<InputBox {...inputBoxProps} />
 			<DeleteBtn {...deleteBtnProps} />
-		</View>
+		</ScrollView>
 	);
 };
 export default NewReminder;

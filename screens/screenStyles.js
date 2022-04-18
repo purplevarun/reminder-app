@@ -12,7 +12,7 @@ export const getScreenStyles = (colors) => {
 			fontSize: 30,
 			alignSelf: "center",
 			fontWeight: "bold",
-			paddingBottom: 20,
+			paddingVertical: 20,
 			color: colors.fg,
 		},
 	};

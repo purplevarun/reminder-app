@@ -2,13 +2,11 @@ import { useState, useContext } from "react";
 import { Text, View, Switch } from "react-native";
 import { GlobalContext } from "../../contexts/GlobalContext";
 const ToggleDarkModeBtn = () => {
-	const { darkMode, colors } = useContext(GlobalContext);
-	const [isChecked, setIsChecked] = useState(
-		darkMode.darkMode ? true : false
-	);
+	const { darkMode, saveDarkMode, colors } = useContext(GlobalContext);
+	const [isChecked, setIsChecked] = useState(darkMode ? true : false);
 	const handleSwitch = () => {
 		setIsChecked((prevValue) => !prevValue);
-		darkMode.setDarkModeAndSave(!isChecked);
+		saveDarkMode(!isChecked);
 	};
 	const wrapperStyle = {
 		backgroundColor: "none",

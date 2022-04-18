@@ -6,7 +6,8 @@ import Header from "../components/header/Header";
 import { CreateReminderBtn } from "../components/buttons/Buttons";
 import NewReminder from "../components/newReminder/NewReminder";
 const CreateReminderScreen = ({ navigation }) => {
-	const styles = getScreenStyles(useContext(GlobalContext).colors);
+	const { colors } = useContext(GlobalContext);
+	const styles = getScreenStyles(colors);
 	const [createReminder, setCreateReminder] = useState(false);
 	const handlePress = () => {
 		setCreateReminder(true);

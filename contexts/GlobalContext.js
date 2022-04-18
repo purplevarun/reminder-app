@@ -27,20 +27,18 @@ const GlobalContextProvider = (props) => {
 	useEffect(() => {
 		setColors(darkMode ? darkModeColors : lightModeColors);
 	}, [darkMode]);
-	const setDarkModeAndSave = (value) => {
+	const saveDarkMode = (value) => {
 		setDarkMode(value);
 		setDefaultTheme(value);
 	};
+	const saveReminder = (newReminder) => {
+		setReminders([newReminder, ...reminders]);
+	};
 	const data = {
-		darkMode: {
-			darkMode,
-			setDarkModeAndSave,
-		},
+		darkMode,
+		saveDarkMode,
 		colors,
-		reminders: {
-			reminders,
-			setReminders,
-		},
+		saveReminder,
 	};
 	return (
 		<GlobalContext.Provider value={data}>
