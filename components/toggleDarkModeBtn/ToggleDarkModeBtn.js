@@ -2,25 +2,25 @@ import { useState, useContext } from "react";
 import { Text, View, Switch } from "react-native";
 import { GlobalContext } from "../../contexts/GlobalContext";
 const ToggleDarkModeBtn = () => {
-	const { darkMode } = useContext(GlobalContext);
+	const { darkMode, colors } = useContext(GlobalContext);
 	const [isChecked, setIsChecked] = useState(
 		darkMode.darkMode ? true : false
 	);
 	const handleSwitch = () => {
 		setIsChecked((prevValue) => !prevValue);
-		darkMode.setDarkMode(!isChecked);
+		darkMode.setDarkModeAndSave(!isChecked);
 	};
 	const wrapperStyle = {
-		backgroundColor: "lightgrey",
+		backgroundColor: "none",
 		padding: 10,
 		display: "flex",
 		flexDirection: "row",
 		justifyContent: "space-between",
 		alignItems: "center",
-		paddingRight: 30,
+		paddingHorizontal: 35,
 	};
 	const switchStyle = { transform: [{ scaleX: 1.8 }, { scaleY: 1.8 }] };
-	const textStyle = { fontSize: 20, color: "black" };
+	const textStyle = { fontSize: 30, color: colors.fg };
 
 	return (
 		<View style={wrapperStyle}>
