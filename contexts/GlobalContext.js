@@ -6,6 +6,15 @@ const GlobalContextProvider = (props) => {
 	const [darkMode, setDarkMode] = useState(true);
 	const [colors, setColors] = useState(lightModeColors);
 	const [reminders, setReminders] = useState([]);
+	const getInitialReminders = async () => {
+		const initalReminders = await AsyncStorage.getItem("remindersList");
+		if (initalReminders && initalReminders.length > 0) {
+			setReminders(initalReminders);
+		}
+	};
+	const setInitialReminders = async () => {
+		await AsyncStorage.setItem("remindersList", reminders);
+	};
 	const getDefaultTheme = async () => {
 		const defaultTheme = await AsyncStorage.getItem("defaultThemeForApp");
 		if (defaultTheme) {
@@ -23,6 +32,7 @@ const GlobalContextProvider = (props) => {
 	};
 	useEffect(() => {
 		getDefaultTheme();
+		getInitialReminders();
 	}, []);
 	useEffect(() => {
 		setColors(darkMode ? darkModeColors : lightModeColors);
@@ -33,6 +43,7 @@ const GlobalContextProvider = (props) => {
 	};
 	const saveReminder = (newReminder) => {
 		setReminders([newReminder, ...reminders]);
+		setInitialReminders();
 	};
 	const data = {
 		darkMode,

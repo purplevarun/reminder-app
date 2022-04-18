@@ -3,9 +3,12 @@ import { Text, View, TouchableOpacity } from "react-native";
 import { GlobalContext } from "../../../../contexts/GlobalContext";
 import AntIcon from "react-native-vector-icons/AntDesign";
 const SaveBtn = () => {
-	const { colors } = useContext(GlobalContext);
+	const { colors, saveReminder } = useContext(GlobalContext);
 	const SaveIcon = <AntIcon name="save" size={40} color={colors.fg} />;
-	const handlePress = () => {};
+	const handlePress = () => {
+		const newReminder = {};
+		saveReminder(newReminder);
+	};
 	const btnStyle = {
 		backgroundColor: colors.green,
 		borderRadius: 5,
