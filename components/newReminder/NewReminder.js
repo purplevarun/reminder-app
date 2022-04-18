@@ -2,7 +2,7 @@ import { ScrollView } from "react-native";
 import { useContext, useState } from "react";
 import { GlobalContext } from "../../contexts/GlobalContext";
 import InputBox from "./subcomponents/InputBox";
-import DeleteBtn from "./subcomponents/buttons/DeleteBtn";
+import NewReminderBtns from "./subcomponents/NewReminderBtns";
 
 const NewReminder = ({ setCreateReminder }) => {
 	const { colors } = useContext(GlobalContext);
@@ -15,8 +15,10 @@ const NewReminder = ({ setCreateReminder }) => {
 		handleTextChange,
 		colors,
 	};
-	const deleteBtnProps = {
-		setCreateReminder,
+	const btnProps = {
+		deleteBtnProps: {
+			setCreateReminder,
+		},
 	};
 	const newReminderWrapperStyles = {
 		backgroundColor: colors.bg,
@@ -25,7 +27,7 @@ const NewReminder = ({ setCreateReminder }) => {
 	return (
 		<ScrollView style={newReminderWrapperStyles}>
 			<InputBox {...inputBoxProps} />
-			<DeleteBtn {...deleteBtnProps} />
+			<NewReminderBtns {...btnProps} />
 		</ScrollView>
 	);
 };
