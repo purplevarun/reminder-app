@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import { Text, View, TouchableOpacity } from "react-native";
 import { GlobalContext } from "../../../../contexts/GlobalContext";
-import Fontiso from "react-native-vector-icons/Fontisto";
-const SelectDateBtn = ({ showDateSelector, setShowDateSelector }) => {
+import Entypo from "react-native-vector-icons/Entypo";
+const SelectTimeBtn = ({ showTimeSelector, setShowTimeSelector }) => {
 	const { colors } = useContext(GlobalContext);
-	const DateIcon = <Fontiso name="date" size={40} color={colors.fg} />;
+	const TimeIcon = <Entypo name="back-in-time" size={40} color={colors.fg} />;
 	const btnStyle = {
-		backgroundColor: colors.purple,
+		backgroundColor: colors.blue,
 		borderRadius: 5,
 		display: "flex",
 		padding: 10,
@@ -24,15 +24,15 @@ const SelectDateBtn = ({ showDateSelector, setShowDateSelector }) => {
 		fontSize: 22,
 	};
 	const handlePress = () => {
-		setShowDateSelector(!showDateSelector);
+		setShowTimeSelector(!showTimeSelector);
 	};
 	return (
 		<TouchableOpacity style={btnStyle} onPress={handlePress}>
 			<View style={btnContentStyle}>
-				<Text style={textStyle}>Select Date</Text>
-				{DateIcon}
+				<Text style={textStyle}>Select Time</Text>
+				{TimeIcon}
 			</View>
 		</TouchableOpacity>
 	);
 };
-export default SelectDateBtn;
+export default SelectTimeBtn;

@@ -2,11 +2,15 @@ import { View, Text } from "react-native";
 import { useContext, useState } from "react";
 import { GlobalContext } from "../../../contexts/GlobalContext";
 import DateTimePicker from "@react-native-community/datetimepicker";
-const TimeSelector = ({ time }) => {
+const TimeSelector = ({ currentTime, setCurrentTime }) => {
 	const { colors } = useContext(GlobalContext);
 	return (
 		<View>
-			<DateTimePicker value={time} mode="time" minimumDate={time} />
+			<DateTimePicker
+				value={currentTime}
+				mode="time"
+				minimumDate={currentTime}
+			/>
 		</View>
 	);
 };

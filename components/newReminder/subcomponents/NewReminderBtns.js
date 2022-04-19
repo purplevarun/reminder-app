@@ -2,8 +2,13 @@ import { View } from "react-native";
 import DeleteBtn from "./buttons/DeleteBtn";
 import SaveBtn from "./buttons/SaveBtn";
 import SelectDateBtn from "./buttons/SelectDateBtn";
+import SelectTimeBtn from "./buttons/SelectTimeBtn";
 
-const NewReminderBtns = ({ deleteBtnProps }) => {
+const NewReminderBtns = ({
+	deleteBtnProps,
+	selectDateBtnProps,
+	selectTimeBtnProps,
+}) => {
 	return (
 		<View
 			style={{
@@ -14,7 +19,8 @@ const NewReminderBtns = ({ deleteBtnProps }) => {
 				flexWrap: "wrap",
 			}}
 		>
-			<SelectDateBtn />
+			<SelectDateBtn {...selectDateBtnProps} />
+			<SelectTimeBtn {...selectTimeBtnProps} />
 			<SaveBtn />
 			<DeleteBtn {...deleteBtnProps} />
 		</View>
