@@ -1,9 +1,9 @@
 import { View, Text } from "react-native";
 import { useContext } from "react";
 import { GlobalContext } from "../../../contexts/GlobalContext";
-const CreatedAt = ({ time }) => {
+const CreatedAt = () => {
 	const getNeatTime = () => {
-		return time.toString().slice(0, 24);
+		return new Date().toString().slice(0, 24);
 	};
 	const { colors } = useContext(GlobalContext);
 	return (

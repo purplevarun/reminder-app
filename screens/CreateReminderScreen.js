@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { ScrollView, View, Text } from "react-native";
 import { GlobalContext } from "../contexts/GlobalContext";
 import { getScreenStyles } from "./screenStyles";
 import { useContext, useState } from "react";
@@ -16,7 +16,7 @@ const CreateReminderScreen = ({ navigation }) => {
 		setCreateReminder,
 	};
 	return (
-		<View style={styles.screenWrapperStyle}>
+		<ScrollView style={styles.screenWrapperStyle}>
 			<Header navigation={navigation} />
 			<View style={styles.screenBodyStyle}>
 				<Text style={styles.screenHeadingStyle}>
@@ -28,7 +28,7 @@ const CreateReminderScreen = ({ navigation }) => {
 					<CreateReminderBtn onPress={handlePress} />
 				)}
 			</View>
-		</View>
+		</ScrollView>
 	);
 };
 

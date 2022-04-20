@@ -3,7 +3,6 @@ export const getScreenStyles = (colors) => {
 		screenWrapperStyle: {
 			backgroundColor: colors.bg,
 			flex: 1,
-			justifyContent: "flex-start",
 		},
 		screenBodyStyle: {
 			padding: 10,

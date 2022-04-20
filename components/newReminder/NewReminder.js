@@ -1,5 +1,5 @@
 import { ScrollView } from "react-native";
-import { useContext, useState } from "react";
+import { useEffect, useContext, useState } from "react";
 import { GlobalContext } from "../../contexts/GlobalContext";
 import InputBox from "./subcomponents/InputBox";
 import NewReminderBtns from "./subcomponents/NewReminderBtns";
@@ -14,6 +14,7 @@ const NewReminder = ({ setCreateReminder }) => {
 	const [showTimeSelector, setShowTimeSelector] = useState(false);
 	const [currentDate, setCurrentDate] = useState(new Date());
 	const [currentTime, setCurrentTime] = useState(new Date());
+
 	const handleTextChange = (newText) => {
 		setCurrentText(newText);
 	};
@@ -34,6 +35,17 @@ const NewReminder = ({ setCreateReminder }) => {
 			showTimeSelector,
 			setShowTimeSelector,
 		},
+		dateDisplayProps: {
+			currentDate,
+		},
+		timeDisplayProps: {
+			currentTime,
+		},
+		saveBtnProps: {
+			currentTime,
+			currentDate,
+			currentText,
+		},
 	};
 	const newReminderWrapperStyles = {
 		backgroundColor: colors.bg,
@@ -42,15 +54,17 @@ const NewReminder = ({ setCreateReminder }) => {
 	const dateSelectorProps = {
 		currentDate,
 		setCurrentDate,
+		setShowDateSelector,
 	};
 	const timeSelectorProps = {
 		currentTime,
 		setCurrentTime,
+		setShowTimeSelector,
 	};
 	return (
 		<ScrollView style={newReminderWrapperStyles}>
 			<InputBox {...inputBoxProps} />
-			<CreatedAt time={currentTime} />
+			<CreatedAt />
 			{showDateSelector && <DateSelector {...dateSelectorProps} />}
 			{showTimeSelector && <TimeSelector {...timeSelectorProps} />}
 			<NewReminderBtns {...btnProps} />
