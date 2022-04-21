@@ -3,7 +3,13 @@ import { Text, View, TouchableOpacity } from "react-native";
 import { GlobalContext } from "../../../../contexts/GlobalContext";
 import AntIcon from "react-native-vector-icons/AntDesign";
 import shortid from "shortid";
-const SaveBtn = ({ currentTime, currentDate, currentText }) => {
+const SaveBtn = ({
+	currentTime,
+	currentDate,
+	currentText,
+	setCreateReminder,
+	navigation,
+}) => {
 	const { colors, saveReminder } = useContext(GlobalContext);
 	const SaveIcon = <AntIcon name="save" size={40} color={colors.fg} />;
 	const getDateFormat = () => {
@@ -24,7 +30,9 @@ const SaveBtn = ({ currentTime, currentDate, currentText }) => {
 			id: shortid.generate(),
 		};
 		console.log(newReminder);
-		// saveReminder(newReminder);
+		saveReminder(newReminder);
+		navigation.navigate("Screen_2_All_Reminders");
+		setCreateReminder(false);
 	};
 	const btnStyle = {
 		backgroundColor: colors.green,

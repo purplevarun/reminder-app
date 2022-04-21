@@ -14,6 +14,7 @@ const CreateReminderScreen = ({ navigation }) => {
 	};
 	const newReminderProps = {
 		setCreateReminder,
+		navigation,
 	};
 	return (
 		<ScrollView style={styles.screenWrapperStyle}>
