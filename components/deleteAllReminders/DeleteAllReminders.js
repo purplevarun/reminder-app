@@ -1,9 +1,9 @@
-import { Alert, TouchableOpacity, Text } from "react-native";
-import { useContext } from "react";
+import { TouchableOpacity, Text } from "react-native";
+import { useContext, useState } from "react";
 import { GlobalContext } from "../../contexts/GlobalContext";
-import SaveBtn from "../newReminder/subcomponents/buttons/SaveBtn";
+import ConfirmationalModal from "../confirmationalModal/ConfirmationalModal";
 const DeleteAllReminders = () => {
-	const { colors, clearReminders } = useContext(GlobalContext);
+	const { colors } = useContext(GlobalContext);
 	const textStyle = { fontSize: 25, color: colors.fg };
 	const btnStyle = {
 		borderWidth: 2,
@@ -16,26 +16,19 @@ const DeleteAllReminders = () => {
 		borderRadius: 10,
 		backgroundColor: colors.red,
 	};
+	const [showModal, setShowModal] = useState(false);
+	const modalProps = {
+		showModal,
+		setShowModal,
+		modalText: "Delete All Reminders?",
+	};
 	const handlePress = () => {
-		Alert.alert(
-			"Delete All Reminders",
-			"This action will delete all reminders",
-			[
-				{
-					text: "Delete",
-					style: "default",
-					onPress: () => clearReminders(),
-				},
-				{
-					text: "Cancel",
-					style: "default",
-				},
-			]
-		);
+		setShowModal(!showModal);
 	};
 	return (
 		<TouchableOpacity style={btnStyle} onPress={handlePress}>
 			<Text style={textStyle}>Delete All Reminders</Text>
+			{showModal && <ConfirmationalModal {...modalProps} />}
 		</TouchableOpacity>
 	);
 };
