@@ -13,8 +13,8 @@ const GlobalContextProvider = (props) => {
 			setReminders(eval(initialReminders));
 		}
 	};
-	const setInitialReminders = async () => {
-		await AsyncStorage.setItem("remindersList", JSON.stringify(reminders));
+	const setInitialReminders = async (rem) => {
+		await AsyncStorage.setItem("remindersList", JSON.stringify(rem));
 	};
 	const getDefaultTheme = async () => {
 		const defaultTheme = await AsyncStorage.getItem("defaultThemeForApp");
@@ -45,12 +45,12 @@ const GlobalContextProvider = (props) => {
 	const saveReminder = (newReminder) => {
 		setReminders([newReminder, ...reminders]);
 		console.log("reminders = ", reminders);
-		setInitialReminders();
+		setInitialReminders([newReminder, ...reminders]);
 	};
 	const clearReminders = () => {
 		setReminders([]);
 		console.log("wiped out reminders");
-		setInitialReminders();
+		setInitialReminders([]);
 	};
 	const data = {
 		darkMode,

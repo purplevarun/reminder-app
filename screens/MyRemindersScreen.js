@@ -1,4 +1,4 @@
-import { View, ScrollView, Text, FlatList } from "react-native";
+import { View, Text, FlatList } from "react-native";
 import Header from "../components/header/Header";
 import { getScreenStyles } from "./screenStyles";
 import { useContext } from "react";
@@ -7,22 +7,6 @@ import SavedReminder from "../components/savedReminder/SavedReminder";
 const MyRemindersScreen = ({ navigation }) => {
 	const { colors, reminders } = useContext(GlobalContext);
 	const styles = getScreenStyles(colors);
-	const renderElements = () => {
-		return (
-			<View>
-				{reminders.map((reminder, idx) => {
-					return (
-						<SavedReminder
-							text={reminder.text}
-							date={reminder.date}
-							id={reminder.id}
-							key={idx}
-						/>
-					);
-				})}
-			</View>
-		);
-	};
 	return (
 		<View style={styles.screenWrapperStyle}>
 			<Header navigation={navigation} />
@@ -31,12 +15,7 @@ const MyRemindersScreen = ({ navigation }) => {
 				<FlatList
 					data={reminders}
 					renderItem={({ item, index }) => (
-						<SavedReminder
-							text={item.text}
-							date={item.date}
-							id={item.id}
-							key={index}
-						/>
+						<SavedReminder item={item} key={index} />
 					)}
 				/>
 			</View>

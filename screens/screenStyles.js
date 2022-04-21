@@ -2,7 +2,7 @@ export const getScreenStyles = (colors) => {
 	return {
 		screenWrapperStyle: {
 			backgroundColor: colors.bg,
-			flex: 1,
+			height: "100%",
 		},
 		screenBodyStyle: {
 			padding: 10,

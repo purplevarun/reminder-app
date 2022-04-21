@@ -1,14 +1,29 @@
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import { useContext } from "react";
 import { GlobalContext } from "../../contexts/GlobalContext";
-const SavedReminder = ({ time, date, text, id, created }) => {
+const SavedReminder = ({ item }) => {
 	const { colors } = useContext(GlobalContext);
+	const textStyle = {
+		color: colors.fg,
+		fontSize: 20,
+	};
 	return (
-		<View>
-			<Text style={{ color: colors.fg }}>TEXT = {text}</Text>
-			<Text style={{ color: colors.fg }}>DATE = {date}</Text>
-			<Text style={{ color: colors.fg }}>ID = {id}</Text>
-		</View>
+		<TouchableOpacity
+			style={{
+				marginHorizontal: 10,
+				marginVertical: 20,
+				alignSelf: "center",
+				padding: 10,
+				borderRadius: 10,
+				width: "95%",
+				borderWidth: 2,
+				borderColor: colors.fg,
+			}}
+		>
+			<Text style={textStyle}>TEXT = {item.text}</Text>
+			<Text style={textStyle}>DATE = {item.date}</Text>
+			<Text style={textStyle}>TIME = {item.time}</Text>
+		</TouchableOpacity>
 	);
 };
 
