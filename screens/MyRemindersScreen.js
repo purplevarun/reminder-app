@@ -3,7 +3,7 @@ import Header from "../components/header/Header";
 import { getScreenStyles } from "./screenStyles";
 import { useContext } from "react";
 import { GlobalContext } from "../contexts/GlobalContext";
-import SavedReminder from "../components/SavedReminder";
+import SavedReminder from "../components/savedReminder/SavedReminder";
 const MyRemindersScreen = ({ navigation }) => {
 	const { colors, reminders } = useContext(GlobalContext);
 	const styles = getScreenStyles(colors);

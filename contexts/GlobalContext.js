@@ -47,12 +47,18 @@ const GlobalContextProvider = (props) => {
 		console.log("reminders = ", reminders);
 		setInitialReminders();
 	};
+	const clearReminders = () => {
+		setReminders([]);
+		console.log("wiped out reminders");
+		setInitialReminders();
+	};
 	const data = {
 		darkMode,
 		saveDarkMode,
 		colors,
 		saveReminder,
 		reminders,
+		clearReminders,
 	};
 	return (
 		<GlobalContext.Provider value={data}>

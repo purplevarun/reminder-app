@@ -7,7 +7,7 @@ import {
 	SettingsBtn,
 } from "./../buttons/Buttons";
 import { getHeaderStyles } from "./HeaderStyle";
-import { useState, useContext, useEffect } from "react";
+import { useContext } from "react";
 const Header = ({ navigation }) => {
 	const handleReminderIconPress = () => {
 		Alert.alert(

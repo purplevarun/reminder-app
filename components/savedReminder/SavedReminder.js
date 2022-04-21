@@ -1,6 +1,6 @@
 import { View, Text } from "react-native";
 import { useContext } from "react";
-import { GlobalContext } from "../contexts/GlobalContext";
+import { GlobalContext } from "../../contexts/GlobalContext";
 const SavedReminder = ({ time, date, text, id, created }) => {
 	const { colors } = useContext(GlobalContext);
 	return (

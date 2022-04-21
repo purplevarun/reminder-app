@@ -4,6 +4,7 @@ import { useContext } from "react";
 import Header from "../components/header/Header";
 import ToggleDarkModeBtn from "./../components/toggleDarkModeBtn/ToggleDarkModeBtn";
 import { GlobalContext } from "../contexts/GlobalContext";
+import DeleteAllReminders from "../components/deleteAllReminders/DeleteAllReminders";
 const SettingsScreen = ({ navigation }) => {
 	const styles = getScreenStyles(useContext(GlobalContext).colors);
 	return (
@@ -12,6 +13,7 @@ const SettingsScreen = ({ navigation }) => {
 			<View style={styles.screenBodyStyle}>
 				<Text style={styles.screenHeadingStyle}>Settings</Text>
 				<ToggleDarkModeBtn />
+				<DeleteAllReminders />
 			</View>
 		</View>
 	);
