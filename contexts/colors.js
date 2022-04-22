@@ -4,6 +4,7 @@ const commonColors = {
 	green: "#00C851",
 	purple: "#aa66cc",
 	blue: "#0099CC",
+	dark: "#082635",
 };
 export const darkModeColors = {
 	fg: "white",

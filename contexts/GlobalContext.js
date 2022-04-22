@@ -43,14 +43,24 @@ const GlobalContextProvider = (props) => {
 		setDefaultTheme(value);
 	};
 	const saveReminder = (newReminder) => {
-		setReminders([newReminder, ...reminders]);
-		console.log("reminders = ", reminders);
-		setInitialReminders([newReminder, ...reminders]);
+		const newReminders = [newReminder, ...reminders];
+		setReminders(newReminders);
+		setInitialReminders(newReminders);
 	};
 	const clearReminders = () => {
 		setReminders([]);
 		console.log("wiped out reminders");
 		setInitialReminders([]);
+	};
+	const deleteReminder = (itemId) => {
+		const newReminders = [];
+		reminders.forEach((rem) => {
+			if (rem.id !== itemId) {
+				newReminders.push(rem);
+			}
+		});
+		setReminders(newReminders);
+		setInitialReminders(newReminders);
 	};
 	const data = {
 		darkMode,
@@ -59,6 +69,7 @@ const GlobalContextProvider = (props) => {
 		saveReminder,
 		reminders,
 		clearReminders,
+		deleteReminder,
 	};
 	return (
 		<GlobalContext.Provider value={data}>

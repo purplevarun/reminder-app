@@ -21,12 +21,19 @@ const SaveBtn = ({
 	const getNeatTime = () => {
 		return new Date().toString().slice(0, 24);
 	};
+	const getDateObj = () => {
+		const dateString =
+			getDateFormat(currentDate) + " " + getTimeFormat(currentTime);
+		const dateObj = new Date(dateString);
+		return dateObj;
+	};
 	const handlePress = () => {
 		const newReminder = {
 			text: currentText,
 			date: getDateFormat(currentDate),
-			time: getTimeFormat(currentTime),
+			time: getDateFormat(currentDate),
 			created: getNeatTime(new Date()),
+			actualDate: getDateObj(),
 			id: shortid.generate(),
 		};
 		console.log(newReminder);
