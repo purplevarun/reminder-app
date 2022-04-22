@@ -4,17 +4,18 @@ const commonColors = {
 	green: "#00C851",
 	purple: "#aa66cc",
 	blue: "#0099CC",
-	dark: "#082635",
 };
 export const darkModeColors = {
 	fg: "white",
 	bg: appBaseColor,
 	primary: "teal",
+	reminderBg: "#082635",
 	...commonColors,
 };
 export const lightModeColors = {
 	fg: appBaseColor,
 	bg: "white",
 	primary: "grey",
+	reminderBg: "whitesmoke",
 	...commonColors,
 };

@@ -4,34 +4,51 @@ import { GlobalContext } from "../../contexts/GlobalContext";
 import SavedReminderDeleteBtn from "./SavedReminderDeleteBtn";
 const SavedReminder = ({ item }) => {
 	const { colors } = useContext(GlobalContext);
-	const textStyle = {
-		color: colors.fg,
-		fontSize: 20,
-	};
 	const [showDeleteBtn, setShowDeleteBtn] = useState(false);
 	const handlePress = () => {
 		setShowDeleteBtn(!showDeleteBtn);
 	};
+	const wrapperStyle = {
+		marginHorizontal: 10,
+		marginVertical: 20,
+		alignSelf: "center",
+		padding: 10,
+		borderRadius: 10,
+		width: "95%",
+		borderWidth: 2,
+		borderColor: colors.fg,
+		backgroundColor: colors.reminderBg,
+	};
 	return (
-		<View
-			style={{
-				marginHorizontal: 10,
-				marginVertical: 20,
-				alignSelf: "center",
-				padding: 10,
-				borderRadius: 10,
-				width: "95%",
-				borderWidth: 2,
-				borderColor: colors.fg,
-				backgroundColor: colors.dark,
-			}}
-		>
+		<View style={wrapperStyle}>
 			<TouchableOpacity onPress={handlePress}>
-				<Text style={textStyle}>TEXT = {item.text}</Text>
-				<Text style={textStyle}>
-					DATE = {item.actualDate.toString()}
-				</Text>
-				<Text style={textStyle}>TIME = {item.time}</Text>
+				<View
+					style={{
+						alignItems: "flex-end",
+						borderBottomWidth: 2,
+						paddingBottom: 5,
+						borderBottomColor: colors.fg,
+					}}
+				>
+					<Text style={{ color: colors.fg, fontSize: 12 }}>
+						{item.date + " " + item.time}
+					</Text>
+				</View>
+				<View
+					style={{
+						alignItems: "flex-start",
+					}}
+				>
+					<Text
+						style={{
+							color: colors.fg,
+							fontSize: 20,
+							paddingTop: 10,
+						}}
+					>
+						{item.text}
+					</Text>
+				</View>
 			</TouchableOpacity>
 			{showDeleteBtn && <SavedReminderDeleteBtn itemId={item.id} />}
 		</View>

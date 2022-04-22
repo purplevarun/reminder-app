@@ -31,7 +31,7 @@ const SaveBtn = ({
 		const newReminder = {
 			text: currentText,
 			date: getDateFormat(currentDate),
-			time: getDateFormat(currentDate),
+			time: getTimeFormat(currentTime),
 			created: getNeatTime(new Date()),
 			actualDate: getDateObj(),
 			id: shortid.generate(),
@@ -42,7 +42,7 @@ const SaveBtn = ({
 		setCreateReminder(false);
 	};
 	const btnStyle = {
-		backgroundColor: colors.green,
+		backgroundColor: currentText === "" ? colors.darkgreen : colors.green,
 		borderRadius: 5,
 		display: "flex",
 		padding: 10,
@@ -60,7 +60,11 @@ const SaveBtn = ({
 		fontSize: 22,
 	};
 	return (
-		<TouchableOpacity style={btnStyle} onPress={handlePress}>
+		<TouchableOpacity
+			style={btnStyle}
+			onPress={handlePress}
+			disabled={currentText === ""}
+		>
 			<View style={btnContentStyle}>
 				<Text style={textStyle}>Save</Text>
 				{SaveIcon}

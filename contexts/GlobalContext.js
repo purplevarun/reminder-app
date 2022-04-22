@@ -49,7 +49,6 @@ const GlobalContextProvider = (props) => {
 	};
 	const clearReminders = () => {
 		setReminders([]);
-		console.log("wiped out reminders");
 		setInitialReminders([]);
 	};
 	const deleteReminder = (itemId) => {
