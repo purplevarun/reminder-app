@@ -17,6 +17,7 @@ const MyRemindersScreen = ({ navigation }) => {
 					renderItem={({ item, index }) => (
 						<SavedReminder item={item} key={index} />
 					)}
+					contentContainerStyle={{ flexGrow: 1 }}
 				/>
 			</View>
 		</View>

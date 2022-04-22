@@ -6,6 +6,7 @@ export const getScreenStyles = (colors) => {
 		},
 		screenBodyStyle: {
 			padding: 10,
+			flex: 1,
 		},
 		screenHeadingStyle: {
 			fontSize: 30,
