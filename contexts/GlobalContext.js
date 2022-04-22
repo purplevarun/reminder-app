@@ -1,6 +1,10 @@
 import { useEffect, createContext, useState } from "react";
 import { darkModeColors, lightModeColors } from "./colors";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import {
+	sendNotification,
+	setupNotification,
+} from "../components/notifications/notifications";
 export const GlobalContext = createContext();
 const GlobalContextProvider = (props) => {
 	const [darkMode, setDarkMode] = useState(true);
@@ -45,6 +49,13 @@ const GlobalContextProvider = (props) => {
 		const newReminders = [newReminder, ...reminders];
 		setReminders(newReminders);
 		setInitialReminders(newReminders);
+		sendNotification(newReminder.text, newReminder.actualDate)
+			.then((value) => {
+				console.log(`token = ${value}`);
+			})
+			.catch((err) => {
+				console.log(`err = \n${err}`);
+			});
 	};
 	const clearReminders = () => {
 		setReminders([]);
