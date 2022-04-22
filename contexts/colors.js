@@ -2,6 +2,7 @@ const appBaseColor = "#001219";
 const commonColors = {
 	red: "#ff4444",
 	green: "#00C851",
+	darkgreen: "#007E33",
 	purple: "#aa66cc",
 	blue: "#0099CC",
 };

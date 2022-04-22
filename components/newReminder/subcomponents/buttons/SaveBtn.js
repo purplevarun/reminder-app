@@ -36,7 +36,6 @@ const SaveBtn = ({
 			actualDate: getDateObj(),
 			id: shortid.generate(),
 		};
-		console.log(newReminder);
 		saveReminder(newReminder);
 		navigation.navigate("Screen_2_All_Reminders");
 		setCreateReminder(false);

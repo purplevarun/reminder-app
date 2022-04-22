@@ -8,7 +8,6 @@ const GlobalContextProvider = (props) => {
 	const [reminders, setReminders] = useState([]);
 	const getInitialReminders = async () => {
 		const initialReminders = await AsyncStorage.getItem("remindersList");
-		console.log("initialReminders = ", initialReminders);
 		if (initialReminders && initialReminders.length > 0) {
 			setReminders(eval(initialReminders));
 		}
