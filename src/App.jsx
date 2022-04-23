@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { FaGithub } from "react-icons/fa";
-import clockimg from "./../assets/clock-icon.png";
+import clockimg from "./assets/clock-icon.png";
 const App = () => {
 	const handleDownloadClick = () => {
 		const url =
