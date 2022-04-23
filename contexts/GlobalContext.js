@@ -2,6 +2,7 @@ import { useEffect, createContext, useState } from "react";
 import { darkModeColors, lightModeColors } from "./colors";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
+	cancelNotification,
 	sendNotification,
 	setupNotification,
 } from "../components/notifications/notifications";
@@ -46,12 +47,16 @@ const GlobalContextProvider = (props) => {
 		setDefaultTheme(value);
 	};
 	const saveReminder = (newReminder) => {
-		const newReminders = [newReminder, ...reminders];
-		setReminders(newReminders);
-		setInitialReminders(newReminders);
 		sendNotification(newReminder.text, newReminder.actualDate)
-			.then((value) => {
-				console.log(`token = ${value}`);
+			.then((token) => {
+				console.log(`token = ${token}`);
+				const newReminderWithToken = {
+					...newReminder,
+					notificationToken: token,
+				};
+				const reminderArray = [newReminderWithToken, ...reminders];
+				setReminders(reminderArray);
+				setInitialReminders(reminderArray);
 			})
 			.catch((err) => {
 				console.log(`err = \n${err}`);
@@ -61,7 +66,7 @@ const GlobalContextProvider = (props) => {
 		setReminders([]);
 		setInitialReminders([]);
 	};
-	const deleteReminder = (itemId) => {
+	const deleteReminder = (itemId, notificationToken) => {
 		const newReminders = [];
 		reminders.forEach((rem) => {
 			if (rem.id !== itemId) {
@@ -70,6 +75,13 @@ const GlobalContextProvider = (props) => {
 		});
 		setReminders(newReminders);
 		setInitialReminders(newReminders);
+		cancelNotification(notificationToken)
+			.then(() => {
+				console.log("cancellation success!");
+			})
+			.catch((err) => {
+				console.error(err);
+			});
 	};
 	const data = {
 		darkMode,

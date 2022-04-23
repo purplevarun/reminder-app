@@ -26,3 +26,12 @@ export const sendNotification = async (text, time) => {
 	});
 	return notificationToken;
 };
+export const cancelNotification = async (id) => {
+	await Notifications.cancelScheduledNotificationAsync(id)
+		.then(() => {
+			console.log("notification with id = ", id, " cancelled!");
+		})
+		.catch((err) => {
+			console.error(err);
+		});
+};

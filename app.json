@@ -28,6 +28,16 @@
 		},
 		"web": {
 			"favicon": "./assets/the-reminder-app-logo.png"
-		}
+		},
+		"plugins": [
+			[
+				"expo-notifications",
+				{
+					"icon": "./assets/clock-icon.png",
+					"color": "#ffffff",
+					"sounds": ["./assets/notification-sound.mp3"]
+				}
+			]
+		]
 	}
 }

@@ -50,7 +50,7 @@ const SavedReminder = ({ item }) => {
 					</Text>
 				</View>
 			</TouchableOpacity>
-			{showDeleteBtn && <SavedReminderDeleteBtn itemId={item.id} />}
+			{showDeleteBtn && <SavedReminderDeleteBtn item={item} />}
 		</View>
 	);
 };

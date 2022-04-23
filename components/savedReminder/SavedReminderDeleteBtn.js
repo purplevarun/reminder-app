@@ -1,10 +1,10 @@
 import { Text, TouchableOpacity } from "react-native";
 import { useContext } from "react";
 import { GlobalContext } from "../../contexts/GlobalContext";
-const SavedReminderDeleteBtn = ({ itemId }) => {
+const SavedReminderDeleteBtn = ({ item }) => {
 	const { colors, deleteReminder } = useContext(GlobalContext);
 	const handlePress = () => {
-		deleteReminder(itemId);
+		deleteReminder(item.id, item.notificationToken);
 	};
 	return (
 		<TouchableOpacity
