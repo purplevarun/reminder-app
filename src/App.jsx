@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import { FaGithub } from "react-icons/fa";
+import clockimg from "./../assets/clock-icon.png";
 const App = () => {
 	const handleDownloadClick = () => {
 		const url =
@@ -14,7 +15,7 @@ const App = () => {
 	return (
 		<div id="App">
 			<div id="header-wrapper">
-				<img src="./../assets/clock-icon.png" alt="" width={50} />
+				<img src={clockimg} alt="" width={50} />
 				<h1>The Reminder App</h1>
 			</div>
 			<button id="download-btn" onClick={handleDownloadClick}>
