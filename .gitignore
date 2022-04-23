@@ -1,6 +1,4 @@
-yarn.lock
-.env
 node_modules
-.expo
-build
-.gradle
+dist
+.env
+yarn.lock
