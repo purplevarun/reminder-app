@@ -17,7 +17,7 @@ export const sendNotification = async (text, time) => {
 	console.log("notification in ...", getTime(time));
 	const notificationToken = await Notifications.scheduleNotificationAsync({
 		content: {
-			title: text,
+			title: `Reminder - ${text}`,
 			categoryIdentifier: "reminder",
 		},
 		trigger: {
