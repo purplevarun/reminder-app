@@ -7,8 +7,8 @@ export const timeValues = {
 };
 
 export const timeConversion = {
-	Seconds: 1,
-	Minutes: 60,
-	Hours: 3600,
-	Days: 216000,
+	Seconds: Math.pow(60, 0) * 1000,
+	Minutes: Math.pow(60, 1) * 1000,
+	Hours: Math.pow(60, 2) * 1000,
+	Days: Math.pow(60, 3) * 1000,
 };

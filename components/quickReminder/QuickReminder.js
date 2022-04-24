@@ -11,8 +11,6 @@ const QuickReminder = ({
 }) => {
 	const { colors } = useContext(GlobalContext);
 	const [currentText, setCurrentText] = useState("");
-	const [currentDate, setCurrentDate] = useState(new Date());
-	const [currentTime, setCurrentTime] = useState(new Date());
 	const [timeOption, setTimeOption] = useState(null);
 	const [timeValue, setTimeValue] = useState(null);
 	const handleTextChange = (newText) => {
@@ -30,11 +28,12 @@ const QuickReminder = ({
 		},
 		saveBtnProps: {
 			currentText,
-			currentDate,
-			currentTime,
+			timeOption,
+			timeValue,
 			setCreateQuickReminder,
 			navigation,
 			timeOption,
+			setHeadingText,
 		},
 		timeSelectorProps: {
 			timeOption,

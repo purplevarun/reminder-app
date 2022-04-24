@@ -51,6 +51,7 @@ const NewReminder = ({
 			currentText,
 			setCreateStandardReminder,
 			navigation,
+			setHeadingText,
 		},
 	};
 	const newReminderWrapperStyles = {

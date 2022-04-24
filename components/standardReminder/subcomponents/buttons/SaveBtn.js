@@ -9,6 +9,7 @@ const SaveBtn = ({
 	currentText,
 	setCreateStandardReminder,
 	navigation,
+	setHeadingText,
 }) => {
 	const { colors, saveReminder } = useContext(GlobalContext);
 	const SaveIcon = <AntIcon name="save" size={40} color={colors.fg} />;
@@ -39,6 +40,7 @@ const SaveBtn = ({
 		saveReminder(newReminder);
 		navigation.navigate("Screen_2_All_Reminders");
 		setCreateStandardReminder(false);
+		setHeadingText("Select type of Reminder");
 	};
 	const btnStyle = {
 		backgroundColor: currentText === "" ? colors.darkgreen : colors.green,
