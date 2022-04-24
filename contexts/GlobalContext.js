@@ -4,7 +4,6 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
 	cancelNotification,
 	sendNotification,
-	setupNotification,
 } from "../components/notifications/notifications";
 export const GlobalContext = createContext();
 const GlobalContextProvider = (props) => {
