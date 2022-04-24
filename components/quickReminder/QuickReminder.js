@@ -14,6 +14,7 @@ const QuickReminder = ({
 	const [currentDate, setCurrentDate] = useState(new Date());
 	const [currentTime, setCurrentTime] = useState(new Date());
 	const [timeOption, setTimeOption] = useState(null);
+	const [timeValue, setTimeValue] = useState(null);
 	const handleTextChange = (newText) => {
 		setCurrentText(newText);
 	};
@@ -36,8 +37,10 @@ const QuickReminder = ({
 			timeOption,
 		},
 		timeSelectorProps: {
-			setTimeOption,
 			timeOption,
+			setTimeOption,
+			timeValue,
+			setTimeValue,
 		},
 	};
 	return (

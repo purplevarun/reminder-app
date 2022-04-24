@@ -5,3 +5,10 @@ export const timeValues = {
 	Hours: [1, 2, 3],
 	Days: [1, 2, 3],
 };
+
+export const timeConversion = {
+	Seconds: 1,
+	Minutes: 60,
+	Hours: 3600,
+	Days: 216000,
+};

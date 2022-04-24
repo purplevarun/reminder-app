@@ -41,7 +41,7 @@ const SaveBtn = ({
 		setCreateQuickReminder(false);
 	};
 	const btnStyle = {
-		backgroundColor: currentText === "" ? colors.darkgreen : colors.green,
+		backgroundColor: colors.green,
 		borderRadius: 5,
 		display: "flex",
 		padding: 10,
@@ -59,11 +59,7 @@ const SaveBtn = ({
 		fontSize: 22,
 	};
 	return (
-		<TouchableOpacity
-			style={btnStyle}
-			onPress={handlePress}
-			disabled={currentText === ""}
-		>
+		<TouchableOpacity style={btnStyle} onPress={handlePress}>
 			<View style={btnContentStyle}>
 				<Text style={textStyle}>Save</Text>
 				{SaveIcon}
