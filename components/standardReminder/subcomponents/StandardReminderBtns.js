@@ -6,7 +6,7 @@ import SelectTimeBtn from "./buttons/SelectTimeBtn";
 import DateDisplay from "./DateDisplay";
 import TimeDisplay from "./TimeDisplay";
 
-const NewReminderBtns = ({
+const StandardReminderBtns = ({
 	deleteBtnProps,
 	selectDateBtnProps,
 	selectTimeBtnProps,
@@ -43,4 +43,4 @@ const NewReminderBtns = ({
 	);
 };
 
-export default NewReminderBtns;
+export default StandardReminderBtns;

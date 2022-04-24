@@ -3,21 +3,29 @@ import { GlobalContext } from "../contexts/GlobalContext";
 import { getScreenStyles } from "./screenStyles";
 import { useContext, useState } from "react";
 import Header from "../components/header/Header";
-import {
-	CreateReminderBtn,
-	QuickReminderBtn,
-} from "../components/buttons/Buttons";
-import NewReminder from "../components/newReminder/NewReminder";
+
+import StandardReminder from "./../components/standardReminder/StandardReminder";
+import NewReminderBtns from "../components/newReminderBtns/NewReminderBtns";
 const CreateReminderScreen = ({ navigation }) => {
 	const { colors } = useContext(GlobalContext);
 	const styles = getScreenStyles(colors);
-	const [createReminder, setCreateReminder] = useState(false);
-	const handlePress = () => {
-		setCreateReminder(true);
+	const [createStandardReminder, setCreateStandardReminder] = useState(false);
+	const [createQuickReminder, setCreateQuickReminder] = useState(false);
+	const handleStandardPress = () => {
+		setCreateStandardReminder(true);
 	};
-	const newReminderProps = {
-		setCreateReminder,
+	const handleQuickPress = () => {
+		setCreateQuickReminder(true);
+	};
+	const standardReminderProps = {
+		setCreateStandardReminder,
 		navigation,
+	};
+	const newReminderBtnProps = {
+		createQuickReminder,
+		createStandardReminder,
+		handleQuickPress,
+		handleStandardPress,
 	};
 	return (
 		<ScrollView style={styles.screenWrapperStyle}>
@@ -26,11 +34,10 @@ const CreateReminderScreen = ({ navigation }) => {
 				<Text style={styles.screenHeadingStyle}>
 					Create New Reminder
 				</Text>
-				<QuickReminderBtn />
-				{createReminder ? (
-					<NewReminder {...newReminderProps} />
-				) : (
-					<CreateReminderBtn onPress={handlePress} />
+				<NewReminderBtns {...newReminderBtnProps} />
+
+				{createStandardReminder && (
+					<StandardReminder {...standardReminderProps} />
 				)}
 			</View>
 		</ScrollView>

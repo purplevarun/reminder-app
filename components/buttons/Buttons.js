@@ -44,7 +44,7 @@ export const SettingsBtn = ({ onPress }) => {
 	);
 };
 
-export const CreateReminderBtn = ({ onPress }) => {
+export const StandardReminderBtn = ({ onPress }) => {
 	const { colors } = useContext(GlobalContext);
 	return (
 		<View

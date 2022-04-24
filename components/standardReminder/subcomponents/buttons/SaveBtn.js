@@ -7,7 +7,7 @@ const SaveBtn = ({
 	currentTime,
 	currentDate,
 	currentText,
-	setCreateReminder,
+	setCreateStandardReminder,
 	navigation,
 }) => {
 	const { colors, saveReminder } = useContext(GlobalContext);
@@ -38,7 +38,7 @@ const SaveBtn = ({
 		};
 		saveReminder(newReminder);
 		navigation.navigate("Screen_2_All_Reminders");
-		setCreateReminder(false);
+		setCreateStandardReminder(false);
 	};
 	const btnStyle = {
 		backgroundColor: currentText === "" ? colors.darkgreen : colors.green,
