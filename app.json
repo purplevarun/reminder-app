@@ -21,7 +21,7 @@
 		},
 		"android": {
 			"adaptiveIcon": {
-				"foregroundImage": "./assets/clock-icon.png",
+				"foregroundImage": "./assets/app-thumbnail.png",
 				"backgroundColor": "#001219"
 			},
 			"package": "com.purplevarun.reminder"

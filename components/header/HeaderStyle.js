@@ -2,9 +2,9 @@ export const getHeaderStyles = (colors) => {
 	return {
 		headerStyle: {
 			backgroundColor: colors.bg,
-			paddingTop: 30,
+			paddingTop: 10, // 30
 			flexDirection: "row",
-			height: 100,
+			height: 80, // 100
 			display: "flex",
 			justifyContent: "space-between",
 			alignItems: "center",
