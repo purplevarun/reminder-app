@@ -1,6 +1,6 @@
 import { View, Text } from "react-native";
 import { useContext } from "react";
-import { GlobalContext } from "../../../contexts/GlobalContext";
+import { GlobalContext } from "../../contexts/GlobalContext";
 const CreatedAt = () => {
 	const getNeatTime = () => {
 		return new Date().toString().slice(0, 24);

@@ -10,7 +10,9 @@ export const getScreenStyles = (colors) => {
 		},
 		screenHeadingStyle: {
 			fontSize: 30,
+			width: "100%",
 			alignSelf: "center",
+			textAlign: "center",
 			fontWeight: "bold",
 			paddingVertical: 20,
 			color: colors.fg,

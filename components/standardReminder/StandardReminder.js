@@ -2,11 +2,15 @@ import { ScrollView } from "react-native";
 import { useContext, useState } from "react";
 import { GlobalContext } from "../../contexts/GlobalContext";
 import StandardReminderBtns from "./subcomponents/StandardReminderBtns";
-import InputBox from "./subcomponents/InputBox";
-import CreatedAt from "./subcomponents/CreatedAt";
+import InputBox from "../inputBox/InputBox";
+import CreatedAt from "../createdAt/CreatedAt";
 import TimeSelector from "./subcomponents/TimeSelector";
 import DateSelector from "./subcomponents/DateSelector";
-const NewReminder = ({ setCreateStandardReminder, navigation }) => {
+const NewReminder = ({
+	setCreateStandardReminder,
+	navigation,
+	setHeadingText,
+}) => {
 	const { colors } = useContext(GlobalContext);
 	const [currentText, setCurrentText] = useState("");
 	const [showDateSelector, setShowDateSelector] = useState(false);
@@ -25,6 +29,7 @@ const NewReminder = ({ setCreateStandardReminder, navigation }) => {
 	const btnProps = {
 		deleteBtnProps: {
 			setCreateStandardReminder,
+			setHeadingText,
 		},
 		selectDateBtnProps: {
 			showDateSelector,

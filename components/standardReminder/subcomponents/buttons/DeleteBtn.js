@@ -2,11 +2,12 @@ import { useContext } from "react";
 import { Text, View, TouchableOpacity } from "react-native";
 import { GlobalContext } from "../../../../contexts/GlobalContext";
 import AntIcon from "react-native-vector-icons/AntDesign";
-const DeleteBtn = ({ setCreateStandardReminder }) => {
+const DeleteBtn = ({ setCreateStandardReminder, setHeadingText }) => {
 	const { colors } = useContext(GlobalContext);
 	const DeleteIcon = <AntIcon name="delete" size={40} color={colors.fg} />;
 	const handlePress = () => {
 		setCreateStandardReminder(false);
+		setHeadingText("Choose a type of Reminder");
 	};
 	const btnStyle = {
 		backgroundColor: colors.red,
