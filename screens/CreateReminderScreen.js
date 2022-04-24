@@ -3,7 +3,10 @@ import { GlobalContext } from "../contexts/GlobalContext";
 import { getScreenStyles } from "./screenStyles";
 import { useContext, useState } from "react";
 import Header from "../components/header/Header";
-import { CreateReminderBtn } from "../components/buttons/Buttons";
+import {
+	CreateReminderBtn,
+	QuickReminderBtn,
+} from "../components/buttons/Buttons";
 import NewReminder from "../components/newReminder/NewReminder";
 const CreateReminderScreen = ({ navigation }) => {
 	const { colors } = useContext(GlobalContext);
@@ -23,6 +26,7 @@ const CreateReminderScreen = ({ navigation }) => {
 				<Text style={styles.screenHeadingStyle}>
 					Create New Reminder
 				</Text>
+				<QuickReminderBtn />
 				{createReminder ? (
 					<NewReminder {...newReminderProps} />
 				) : (

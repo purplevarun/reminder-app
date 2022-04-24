@@ -1,6 +1,7 @@
-import { TouchableOpacity, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import MaterialIcon from "react-native-vector-icons/MaterialIcons";
 import FeatherIcon from "react-native-vector-icons/Feather";
+import MaterialCom from "react-native-vector-icons/MaterialCommunityIcons";
 import { touchableOpacityStyle } from "./ButtonsStyle";
 import { GlobalContext } from "../../contexts/GlobalContext";
 import { useContext } from "react";
@@ -52,11 +53,60 @@ export const CreateReminderBtn = ({ onPress }) => {
 				paddingTop: 50,
 			}}
 		>
-			<TouchableOpacity style={touchableOpacityStyle} onPress={onPress}>
+			<TouchableOpacity
+				style={{ ...touchableOpacityStyle }}
+				onPress={onPress}
+			>
+				<Text
+					style={{
+						color: colors.fg,
+						fontSize: 20,
+						marginVertical: 20,
+					}}
+				>
+					Standard Reminder
+				</Text>
 				<View style={{ display: "flex", height: btnSize, top: 1 }}>
 					<FeatherIcon
 						name="plus-circle"
 						size={btnSize - 3}
+						color={colors.fg}
+					/>
+				</View>
+			</TouchableOpacity>
+		</View>
+	);
+};
+
+export const QuickReminderBtn = ({ onPress }) => {
+	const { colors } = useContext(GlobalContext);
+	return (
+		<View
+			style={{
+				display: "flex",
+				paddingTop: 50,
+			}}
+		>
+			<TouchableOpacity
+				style={{
+					...touchableOpacityStyle,
+					alignSelf: "center",
+				}}
+				onPress={onPress}
+			>
+				<Text
+					style={{
+						color: colors.fg,
+						fontSize: 20,
+						marginVertical: 20,
+					}}
+				>
+					Quick Reminder
+				</Text>
+				<View style={{ display: "flex", height: btnSize, top: 1 }}>
+					<MaterialCom
+						name="lightning-bolt"
+						size={btnSize}
 						color={colors.fg}
 					/>
 				</View>
