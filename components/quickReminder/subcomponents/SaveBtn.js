@@ -1,4 +1,4 @@
-import { useEffect, useContext } from "react";
+import { useContext } from "react";
 import { Text, View, TouchableOpacity } from "react-native";
 import AntIcon from "react-native-vector-icons/AntDesign";
 import shortid from "shortid";
@@ -36,6 +36,10 @@ const SaveBtn = ({
 		const dateObj = new Date(dateString);
 		return dateObj;
 	};
+	const getDisableStatus = () => {
+		if (timeValue) return false;
+		return true;
+	};
 	const handlePress = () => {
 		const newReminder = {
 			text: currentText,
@@ -45,14 +49,13 @@ const SaveBtn = ({
 			actualDate: getDateObj(),
 			id: shortid.generate(),
 		};
-		console.log(newReminder);
 		saveReminder(newReminder);
 		navigation.navigate("Screen_2_All_Reminders");
 		setCreateQuickReminder(false);
 		setHeadingText("Select type of Reminder");
 	};
 	const btnStyle = {
-		backgroundColor: colors.green,
+		backgroundColor: getDisableStatus() ? colors.darkgreen : colors.green,
 		borderRadius: 5,
 		display: "flex",
 		padding: 10,
@@ -70,7 +73,11 @@ const SaveBtn = ({
 		fontSize: 22,
 	};
 	return (
-		<TouchableOpacity style={btnStyle} onPress={handlePress}>
+		<TouchableOpacity
+			style={btnStyle}
+			onPress={handlePress}
+			disabled={getDisableStatus()}
+		>
 			<View style={btnContentStyle}>
 				<Text style={textStyle}>Save</Text>
 				{SaveIcon}

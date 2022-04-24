@@ -62,6 +62,15 @@ const GlobalContextProvider = (props) => {
 			});
 	};
 	const clearReminders = () => {
+		reminders.forEach((reminder) => {
+			cancelNotification(reminder.notificationToken)
+				.then(() => {
+					console.log("cancellation success!");
+				})
+				.catch((err) => {
+					console.error(err);
+				});
+		});
 		setReminders([]);
 		setInitialReminders([]);
 	};
